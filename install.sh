@@ -3,36 +3,30 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Give people a chance to retry running the installation
-trap 'echo "Omakub installation failed! You can retry by running: source ~/.local/share/omakub/install.sh"' ERR
+trap 'echo "OmakGnome installation failed! You can retry by running: bash ~/.local/share/omakgnome/install.sh"' ERR
 
-# Check the distribution name and version and abort if incompatible
-source ~/.local/share/omakub/install/check-version.sh
+export OMAKGNOME_PATH="$HOME/.local/share/omakgnome"
 
-# Ask for app choices
-echo "Get ready to make a few choices..."
-source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
-source ~/.local/share/omakub/install/first-run-choices.sh
-source ~/.local/share/omakub/install/identification.sh
+# Make apply-theme script executable
+chmod +x "$OMAKGNOME_PATH/bin/apply-theme.sh"
 
-# Desktop software and tweaks will only be installed if we're running Gnome
-if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-  # Ensure computer doesn't go to sleep or lock while installing
-  gsettings set org.gnome.desktop.screensaver lock-enabled false
-  gsettings set org.gnome.desktop.session idle-delay 0
+# Install GNOME Shell extension for Quick Settings theme button
+EXTENSION_UUID="omakgnome-theme@omakgnome"
+EXTENSION_DIR="$HOME/.local/share/gnome-shell/extensions/$EXTENSION_UUID"
 
-  echo "Installing terminal and desktop tools..."
+echo "Installing GNOME Shell extension..."
+mkdir -p "$EXTENSION_DIR"
+cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/metadata.json" "$EXTENSION_DIR/"
+cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/extension.js" "$EXTENSION_DIR/"
+cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/stylesheet.css" "$EXTENSION_DIR/"
 
-  # Install terminal tools
-  source ~/.local/share/omakub/install/terminal.sh
-
-  # Install desktop tools and tweaks
-  source ~/.local/share/omakub/install/desktop.sh
-
-  # Revert to normal idle and lock settings
-  gsettings set org.gnome.desktop.screensaver lock-enabled true
-  gsettings set org.gnome.desktop.session idle-delay 300
-else
-  echo "Only installing terminal tools..."
-  source ~/.local/share/omakub/install/terminal.sh
+# Enable the extension
+if command -v gnome-extensions &>/dev/null; then
+  gnome-extensions enable "$EXTENSION_UUID" 2>/dev/null || true
 fi
+
+echo ""
+echo "OmakGnome installed!"
+echo "Use the 'Theme' button in GNOME Quick Settings (top-right panel) to switch themes."
+echo ""
+echo "You may need to log out and back in for the button to appear."

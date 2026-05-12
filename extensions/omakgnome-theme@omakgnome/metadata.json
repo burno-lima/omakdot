@@ -1,0 +1,7 @@
+{
+  "name": "OmakGnome Theme Switcher",
+  "description": "Quick Settings button for switching OmakGnome themes",
+  "uuid": "omakgnome-theme@omakgnome",
+  "shell-version": ["46", "47", "48"],
+  "url": "https://github.com/burno-lima/omakgnome"
+}

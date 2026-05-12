@@ -1,5 +1,5 @@
 #!/bin/bash
 
-OMAKUB_THEME_COLOR="orange"
-OMAKUB_THEME_BACKGROUND="matte-black/background.jpg"
-source $OMAKUB_PATH/themes/set-gnome-theme.sh
+OMAKGNOME_THEME_COLOR="orange"
+OMAKGNOME_THEME_BACKGROUND="matte-black/background.jpg"
+source $OMAKGNOME_PATH/themes/set-gnome-theme.sh

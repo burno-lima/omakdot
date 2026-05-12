@@ -4,6 +4,7 @@ return {
 		config = function()
 			require("monokai-pro").setup({
 				filter = "ristretto",
+				transparent_background = true,
 				override = function()
 					return {
 						NonText = { fg = "#948a8b" },

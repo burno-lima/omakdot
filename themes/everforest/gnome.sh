@@ -1,5 +1,5 @@
 #!/bin/bash
 
-OMAKUB_THEME_COLOR="bark"
-OMAKUB_THEME_BACKGROUND="everforest/background.jpg"
-source $OMAKUB_PATH/themes/set-gnome-theme.sh
+OMAKGNOME_THEME_COLOR="bark"
+OMAKGNOME_THEME_BACKGROUND="everforest/background.jpg"
+source $OMAKGNOME_PATH/themes/set-gnome-theme.sh
