@@ -14,7 +14,7 @@ const THEMES = [
     {name: 'Ristretto', id: 'ristretto'},
     {name: 'Rose Pine', id: 'rose-pine'},
     {name: 'Matte Black', id: 'matte-black'},
-    {name: 'Osaka Jade', id: 'osaka-jade'},
+    {name: 'Solarized Osaka', id: 'solarized-osaka'},
 ];
 
 const ThemeMenuToggle = GObject.registerClass(

@@ -29,7 +29,7 @@ Click the **Theme** button in the GNOME Quick Settings panel (top-right corner o
 | Ristretto | Brown | Coffee tones |
 | Rose Pine | Pink | Elegant muted |
 | Matte Black | Dark | Minimal dark |
-| Osaka Jade | Green | Deep jade |
+| Solarized Osaka | Blue | Solarized dark |
 
 ## License
 
