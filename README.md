@@ -1,8 +1,14 @@
 # OmakGnome
 
-A GNOME theme automation tool for Ubuntu 24.04+. Switch your entire desktop theme directly from the **GNOME Quick Settings** panel — no terminal needed.
+A GNOME theme automation tool. Switch your entire desktop theme directly from the **GNOME Quick Settings** panel — no terminal needed.
 
 This project is a fork of [Omakub](https://github.com/basecamp/omakub) by Basecamp, stripped down to focus exclusively on theme management via GNOME Quick Settings.
+
+## Requirements
+
+- GNOME desktop environment (42+)
+- `git`
+- `wget`
 
 ## Installation
 

@@ -7,11 +7,13 @@ echo "║           OmakGnome                   ║"
 echo "║   GNOME Theme Automation Tool         ║"
 echo "╚═══════════════════════════════════════╝"
 echo ""
-echo "=> Requires Ubuntu 24.04+ with GNOME desktop"
+echo "=> Requires GNOME desktop environment"
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
-sudo apt-get update >/dev/null
-sudo apt-get install -y git curl >/dev/null
+if ! command -v git &>/dev/null; then
+  echo "Error: git is required. Please install git and try again."
+  exit 1
+fi
 
 echo "Cloning OmakGnome..."
 rm -rf ~/.local/share/omakgnome
