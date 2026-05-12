@@ -16,9 +16,9 @@ sudo apt-get install -y git curl >/dev/null
 echo "Cloning OmakGnome..."
 rm -rf ~/.local/share/omakgnome
 git clone https://github.com/burno-lima/omakgnome.git ~/.local/share/omakgnome >/dev/null
-if [[ $OMAKGNOME_REF != "main" ]]; then
+if [[ -n "$OMAKGNOME_REF" && "$OMAKGNOME_REF" != "master" ]]; then
 	cd ~/.local/share/omakgnome
-	git fetch origin "${OMAKGNOME_REF:-main}" && git checkout "${OMAKGNOME_REF:-main}"
+	git fetch origin "$OMAKGNOME_REF" && git checkout "$OMAKGNOME_REF"
 	cd -
 fi
 

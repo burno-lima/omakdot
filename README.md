@@ -7,7 +7,7 @@ This project is a fork of [Omakub](https://github.com/basecamp/omakub) by Baseca
 ## Installation
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/burno-lima/omakgnome/main/boot.sh | bash
+wget -qO- https://raw.githubusercontent.com/burno-lima/omakgnome/master/boot.sh | bash
 ```
 
 After installation, log out and back in for the extension to load.
