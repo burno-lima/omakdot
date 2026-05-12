@@ -7,13 +7,23 @@ export OMAKGNOME_PATH="${OMAKGNOME_PATH:-$HOME/.local/share/omakgnome}"
 
 if [ -z "$THEME" ] || [ ! -d "$OMAKGNOME_PATH/themes/$THEME" ]; then
   echo "Usage: apply-theme.sh <theme-id>"
-  echo "Available: tokyo-night catppuccin nord everforest gruvbox kanagawa ristretto rose-pine matte-black osaka-jade"
+  echo "Available: tokyo-night catppuccin nord everforest gruvbox kanagawa ristretto rose-pine matte-black solarized-osaka"
   exit 1
 fi
 
 # Alacritty
 if [ -d "$HOME/.config/alacritty" ]; then
   cp "$OMAKGNOME_PATH/themes/$THEME/alacritty.toml" "$HOME/.config/alacritty/theme.toml"
+
+  # Ensure the main alacritty.toml imports theme.toml
+  ALACRITTY_CONF="$HOME/.config/alacritty/alacritty.toml"
+  if [ -f "$ALACRITTY_CONF" ]; then
+    if grep -q '^import' "$ALACRITTY_CONF"; then
+      sed -i 's|^import = \[.*\]|import = ["~/.config/alacritty/theme.toml"]|' "$ALACRITTY_CONF"
+    else
+      sed -i '1i import = ["~/.config/alacritty/theme.toml"]' "$ALACRITTY_CONF"
+    fi
+  fi
 fi
 
 # Zellij
