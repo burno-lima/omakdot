@@ -20,10 +20,16 @@ cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/metadata.json" "$EXTENSION_DIR/"
 cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/extension.js" "$EXTENSION_DIR/"
 cp "$OMAKGNOME_PATH/extensions/$EXTENSION_UUID/stylesheet.css" "$EXTENSION_DIR/"
 
-# Enable the extension
-if command -v gnome-extensions &>/dev/null; then
-  gnome-extensions enable "$EXTENSION_UUID" 2>/dev/null || true
+# Enable the extension (via gsettings to persist even before first login)
+CURRENT_EXTENSIONS=$(gsettings get org.gnome.shell enabled-extensions)
+if [[ "$CURRENT_EXTENSIONS" != *"$EXTENSION_UUID"* ]]; then
+  if [[ "$CURRENT_EXTENSIONS" == "@as []" ]]; then
+    gsettings set org.gnome.shell enabled-extensions "['$EXTENSION_UUID']"
+  else
+    gsettings set org.gnome.shell enabled-extensions "$(echo "$CURRENT_EXTENSIONS" | sed "s/]/, '$EXTENSION_UUID']/")"
+  fi
 fi
+gnome-extensions enable "$EXTENSION_UUID" 2>/dev/null || true
 
 echo ""
 echo "OmakGnome installed!"
