@@ -1,9 +1,17 @@
 #!/bin/bash
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
-gsettings set org.gnome.desktop.interface gtk-theme "Yaru-$OMAKGNOME_THEME_COLOR-dark"
-gsettings set org.gnome.desktop.interface icon-theme "Yaru-$OMAKGNOME_THEME_COLOR"
+
+if [ -d "/usr/share/themes/Yaru-$OMAKGNOME_THEME_COLOR-dark" ]; then
+  gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
+  gsettings set org.gnome.desktop.interface gtk-theme "Yaru-$OMAKGNOME_THEME_COLOR-dark"
+  gsettings set org.gnome.desktop.interface icon-theme "Yaru-$OMAKGNOME_THEME_COLOR"
+else
+  gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+  gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+fi
+
 gsettings set org.gnome.desktop.interface accent-color "$OMAKGNOME_THEME_COLOR" 2>/dev/null || true
 
 BACKGROUND_ORG_PATH="$HOME/.local/share/omakgnome/themes/$OMAKGNOME_THEME_BACKGROUND"
