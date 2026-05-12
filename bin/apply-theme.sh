@@ -63,6 +63,30 @@ if command -v fish &>/dev/null; then
   fi
 fi
 
+# Chrome/Chromium theme color via enterprise policy
+CHROMIUM_THEME_FILE="$OMAKGNOME_PATH/themes/$THEME/chromium.theme"
+if [ -f "$CHROMIUM_THEME_FILE" ]; then
+  THEME_RGB=$(<"$CHROMIUM_THEME_FILE" tr -d '[:space:]')
+  THEME_HEX=$(printf '#%02x%02x%02x' ${THEME_RGB//,/ })
+
+  set_browser_policy() {
+    local policy_dir="$1"
+    sudo mkdir -p "$policy_dir" 2>/dev/null || return
+    echo "{\"BrowserThemeColor\": \"$THEME_HEX\", \"BrowserColorScheme\": \"device\"}" | sudo tee "$policy_dir/color.json" >/dev/null
+  }
+
+  set_browser_policy /etc/opt/chrome/policies/managed
+  set_browser_policy /etc/chromium/policies/managed
+
+  # Refresh running browser
+  if pgrep -x chrome >/dev/null 2>&1; then
+    google-chrome-stable --refresh-platform-policy --no-startup-window &>/dev/null || true
+  fi
+  if pgrep -x chromium >/dev/null 2>&1; then
+    chromium --refresh-platform-policy --no-startup-window &>/dev/null || true
+  fi
+fi
+
 # GNOME desktop theme (wallpaper, GTK, accent color)
 source "$OMAKGNOME_PATH/themes/$THEME/gnome.sh"
 

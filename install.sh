@@ -10,6 +10,12 @@ export OMAKGNOME_PATH="$HOME/.local/share/omakgnome"
 # Make apply-theme script executable
 chmod +x "$OMAKGNOME_PATH/bin/apply-theme.sh"
 
+# Setup Chrome/Chromium policy directories and passwordless sudo for theme color
+sudo mkdir -p /etc/opt/chrome/policies/managed /etc/chromium/policies/managed
+SUDOERS_FILE="/etc/sudoers.d/omakgnome-browser-theme"
+echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/tee /etc/opt/chrome/policies/managed/color.json, /usr/bin/tee /etc/chromium/policies/managed/color.json, /usr/bin/mkdir -p /etc/opt/chrome/policies/managed, /usr/bin/mkdir -p /etc/chromium/policies/managed" | sudo tee "$SUDOERS_FILE" >/dev/null
+sudo chmod 0440 "$SUDOERS_FILE"
+
 # Install GNOME Shell extension for Quick Settings theme button
 EXTENSION_UUID="omakgnome-theme@omakgnome"
 EXTENSION_DIR="$HOME/.local/share/gnome-shell/extensions/$EXTENSION_UUID"
