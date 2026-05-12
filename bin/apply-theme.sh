@@ -56,6 +56,13 @@ if [ -d "$HOME/.config/btop" ]; then
   fi
 fi
 
+# Fish shell colors
+if command -v fish &>/dev/null; then
+  if [ -f "$OMAKGNOME_PATH/themes/$THEME/fish.fish" ]; then
+    fish -c "source $OMAKGNOME_PATH/themes/$THEME/fish.fish"
+  fi
+fi
+
 # GNOME desktop theme (wallpaper, GTK, accent color)
 source "$OMAKGNOME_PATH/themes/$THEME/gnome.sh"
 
