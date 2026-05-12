@@ -63,6 +63,12 @@ if command -v fish &>/dev/null; then
   fi
 fi
 
+# Starship prompt
+if command -v starship &>/dev/null; then
+  mkdir -p "$HOME/.config"
+  cp "$OMAKGNOME_PATH/themes/$THEME/starship.toml" "$HOME/.config/starship.toml"
+fi
+
 # Chrome/Chromium theme color via enterprise policy
 CHROMIUM_THEME_FILE="$OMAKGNOME_PATH/themes/$THEME/chromium.theme"
 if [ -f "$CHROMIUM_THEME_FILE" ]; then
