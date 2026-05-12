@@ -31,6 +31,12 @@ Click the **Theme** button in the GNOME Quick Settings panel (top-right corner o
 | Matte Black | Dark | Minimal dark |
 | Solarized Osaka | Blue | Solarized dark |
 
+## Updating
+
+```bash
+cd ~/.local/share/omakgnome && git pull && bash install.sh
+```
+
 ## License
 
 This project is released under the [MIT License](https://opensource.org/licenses/MIT), same as the original [Omakub](https://github.com/basecamp/omakub) project by Basecamp.
