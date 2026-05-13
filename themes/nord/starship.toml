@@ -35,7 +35,7 @@ truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 style  = 'branch'
 format = 'on [$symbol$branch(:$remote_branch)]($style) '
 
@@ -54,22 +54,22 @@ renamed    = '»'
 deleted    = '✘'
 
 [nodejs]
-symbol = ' '
+symbol = ' '
 style  = 'node'
 format = '[${symbol}${version}]($style) '
 
 [python]
-symbol = ' '
+symbol = ' '
 style  = 'python'
 format = '[${symbol}${version}(\($virtualenv\))]($style) '
 
 [rust]
-symbol = ' '
+symbol = ' '
 style  = 'rust'
 format = '[${symbol}${version}]($style) '
 
 [golang]
-symbol = ' '
+symbol = ' '
 style  = 'go'
 format = '[${symbol}${version}]($style) '
 
