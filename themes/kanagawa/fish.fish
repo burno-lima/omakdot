@@ -19,3 +19,13 @@ set -U fish_pager_color_prefix 6a9589
 set -U fish_pager_color_completion dcd7ba
 set -U fish_pager_color_description 727169
 set -U fish_pager_color_selected_background --background=2d4f67
+
+# Pure prompt colors
+set -U pure_color_primary 7e9cd8
+set -U pure_color_mute 727169
+set -U pure_color_info 6a9589
+set -U pure_color_success 957fb8
+set -U pure_color_danger c34043
+set -U pure_color_warning c0a36e
+set -U pure_color_light dcd7ba
+set -U pure_color_normal normal
