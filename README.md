@@ -22,6 +22,12 @@ After installation, log out and back in for the extension to load.
 
 Click the **Theme** button in the GNOME Quick Settings panel (top-right corner of the screen) and pick a theme from the dropdown menu. The theme is applied instantly across: GNOME desktop (wallpaper, GTK, accent color), Alacritty, Zellij, btop, Neovim, and VS Code.
 
+## Screenshots
+
+| Catppuccin | Everforest | Ristretto |
+|------------|------------|-----------|
+| ![Catppuccin](images/catppuccin.png) | ![Everforest](images/everforest.png) | ![Ristretto](images/ristretto.png) |
+
 ## Available Themes
 
 | Theme | Color | Style |
