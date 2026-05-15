@@ -2,13 +2,19 @@
 
 set -e
 
-echo "╔═══════════════════════════════════════╗"
-echo "║           OmakGnome                   ║"
-echo "║   GNOME Theme Automation Tool         ║"
-echo "╚═══════════════════════════════════════╝"
+echo ""
+echo "   ____                __   ______                          "
+echo "  / __ \____ ___  ____ / /__/ ____/___  ____  ____ ___  ___ "
+echo " / / / / __ \`__ \/ __ \`/ //_/ / __/ __ \/ __ \/ __ \`__ \/ _ \\"
+echo "/ /_/ / / / / / / /_/ / ,< / /_/ / / / / /_/ / / / / / /  __/"
+echo "\____/_/ /_/ /_/\__,_/_/|_|\____/_/ /_/\____/_/ /_/ /_/\___/ "
+echo ""
+echo "  GNOME Theme Automation Tool"
 echo ""
 echo "=> Requires GNOME desktop environment"
-echo -e "\nBegin installation (or abort with ctrl+c)..."
+echo ""
+echo "Begin installation (or abort with ctrl+c)..."
+echo ""
 
 if ! command -v git &>/dev/null; then
   echo "Error: git is required. Please install git and try again."

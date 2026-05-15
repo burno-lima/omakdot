@@ -8,12 +8,12 @@ This project is a fork of [Omakub](https://github.com/basecamp/omakub) by Baseca
 
 - GNOME desktop environment (42+)
 - `git`
-- `wget`
+- `curl`
 
 ## Installation
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/burno-lima/omakgnome/master/boot.sh | bash
+curl -fsSL https://raw.githubusercontent.com/burno-lima/omakgnome/master/boot.sh | bash
 ```
 
 After installation, log out and back in for the extension to load.
