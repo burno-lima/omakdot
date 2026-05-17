@@ -74,6 +74,12 @@ Click the **Theme** button in the GNOME Quick Settings panel (top-right corner) 
 | Matte Black | Dark | Minimal dark |
 | Solarized Osaka | Viridian | Solarized dark |
 
+## Screenshots
+
+| Catppuccin | Everforest | Ristretto |
+|------------|------------|-----------|
+| ![Catppuccin](images/catppuccin.png) | ![Everforest](images/everforest.png) | ![Ristretto](images/ristretto.png) |
+
 ## Updating
 
 ```bash
