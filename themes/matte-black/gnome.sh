@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OMAKGNOME_THEME_BACKGROUND="matte-black/background.jpg"
+OMAKDOT_THEME_BACKGROUND="matte-black/background.jpg"
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
@@ -16,9 +16,9 @@ fi
 
 gsettings set org.gnome.desktop.interface accent-color "slate" 2>/dev/null || true
 
-BACKGROUND_ORG_PATH="$HOME/.local/share/omakgnome/themes/$OMAKGNOME_THEME_BACKGROUND"
+BACKGROUND_ORG_PATH="$HOME/.local/share/omakdot/themes/$OMAKDOT_THEME_BACKGROUND"
 BACKGROUND_DEST_DIR="$HOME/.local/share/backgrounds"
-BACKGROUND_DEST_PATH="$BACKGROUND_DEST_DIR/$(echo $OMAKGNOME_THEME_BACKGROUND | tr '/' '-')"
+BACKGROUND_DEST_PATH="$BACKGROUND_DEST_DIR/$(echo $OMAKDOT_THEME_BACKGROUND | tr '/' '-')"
 
 if [ ! -d "$BACKGROUND_DEST_DIR" ]; then mkdir -p "$BACKGROUND_DEST_DIR"; fi
 

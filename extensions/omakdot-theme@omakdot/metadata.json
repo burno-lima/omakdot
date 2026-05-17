@@ -1,0 +1,7 @@
+{
+  "name": "OmakDot Theme Switcher",
+  "description": "Quick Settings button for switching OmakDot themes",
+  "uuid": "omakdot-theme@omakdot",
+  "shell-version": ["46", "47", "48", "49", "50"],
+  "url": "https://github.com/burno-lima/omakdot"
+}

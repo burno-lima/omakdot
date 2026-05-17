@@ -1,5 +1,5 @@
 #!/bin/bash
 
-OMAKGNOME_THEME_COLOR="viridian"
-OMAKGNOME_THEME_BACKGROUND="solarized-osaka/background.jpg"
-source $OMAKGNOME_PATH/themes/set-gnome-theme.sh
+OMAKDOT_THEME_COLOR="viridian"
+OMAKDOT_THEME_BACKGROUND="solarized-osaka/background.jpg"
+source $OMAKDOT_PATH/themes/set-gnome-theme.sh

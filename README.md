@@ -1,8 +1,11 @@
-# OmakGnome
+# OmakDot
 
-A GNOME theme automation tool. Switch your entire desktop theme directly from the **GNOME Quick Settings** panel — no terminal needed.
+Development environment setup and theme automation for GNOME.
 
-This project is a fork of [Omakub](https://github.com/basecamp/omakub) by Basecamp, stripped down to focus exclusively on theme management via GNOME Quick Settings.
+- **Installs** your favorite dev tools: Fish, Neovim, Docker, mise, Zellij, LazyGit, and more
+- **Installs** desktop apps: VS Code, Chrome, Obsidian, JetBrains Toolbox, Alacritty, and more
+- **Configures** everything with sensible defaults
+- **Theme automation**: switch your entire desktop theme from the **GNOME Quick Settings** panel
 
 ## Requirements
 
@@ -13,20 +16,48 @@ This project is a fork of [Omakub](https://github.com/basecamp/omakub) by Baseca
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/burno-lima/omakgnome/master/boot.sh | bash
+curl -fsSL https://raw.githubusercontent.com/burno-lima/omakdot/master/boot.sh | bash
 ```
 
 After installation, log out and back in for the extension to load.
 
+## What's Installed
+
+### Terminal Tools
+| Tool | Description |
+|------|-------------|
+| **Fish** shell | User-friendly shell with Pure prompt theme |
+| **Neovim** | Modern Vim fork with LazyVim starter |
+| **mise** | Dev tool version manager (Node, Python, Go) |
+| **Docker** | Container runtime + docker compose |
+| **Zellij** | Terminal multiplexer |
+| **LazyGit** | Terminal UI for git |
+| **eza** | Modern `ls` replacement |
+| **btop** | System resource monitor |
+| **Claude Code** | AI coding assistant |
+| **OpenCode** | AI coding assistant |
+| **rclone** | Cloud storage sync |
+
+### Desktop Apps
+| App | Description |
+|-----|-------------|
+| **VS Code** | Editor with Claude Code extension |
+| **Google Chrome** | Browser (set as default) |
+| **Alacritty** | GPU-accelerated terminal (set as default) |
+| **Obsidian** | Note-taking |
+| **JetBrains Toolbox** | JetBrains IDE manager |
+| **DBeaver CE** | Database management |
+| **Beekeeper Studio** | SQL database GUI |
+| **GNOME Tweaks** | GNOME customization |
+| **Flatpak + Flathub** | App sandboxing |
+
+### Fonts
+- Hack Nerd Font
+- Cascadia Mono Nerd Font
+
 ## Usage
 
-Click the **Theme** button in the GNOME Quick Settings panel (top-right corner of the screen) and pick a theme from the dropdown menu. The theme is applied instantly across: GNOME desktop (wallpaper, GTK, accent color), Alacritty, Zellij, btop, Neovim, and VS Code.
-
-## Screenshots
-
-| Catppuccin | Everforest | Ristretto |
-|------------|------------|-----------|
-| ![Catppuccin](images/catppuccin.png) | ![Everforest](images/everforest.png) | ![Ristretto](images/ristretto.png) |
+Click the **Theme** button in the GNOME Quick Settings panel (top-right corner) to switch themes instantly across: GNOME desktop, Alacritty, Zellij, btop, Neovim, VS Code, Fish, and Chrome.
 
 ## Available Themes
 
@@ -46,7 +77,16 @@ Click the **Theme** button in the GNOME Quick Settings panel (top-right corner o
 ## Updating
 
 ```bash
-cd ~/.local/share/omakgnome && git pull && bash install.sh
+cd ~/.local/share/omakdot && git pull && bash install.sh
+```
+
+## Individual Package Installation
+
+After the initial setup, you can install individual packages:
+
+```bash
+source ~/.local/share/omakdot/install/terminal/fish.sh
+source ~/.local/share/omakdot/install/terminal/docker.sh
 ```
 
 ## License

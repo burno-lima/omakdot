@@ -9,9 +9,9 @@ echo " / / / / __ \`__ \/ __ \`/ //_/ / __/ __ \/ __ \/ __ \`__ \/ _ \\"
 echo "/ /_/ / / / / / / /_/ / ,< / /_/ / / / / /_/ / / / / / /  __/"
 echo "\____/_/ /_/ /_/\__,_/_/|_|\____/_/ /_/\____/_/ /_/ /_/\___/ "
 echo ""
-echo "  GNOME Theme Automation Tool"
+echo "  Development Environment Setup & Theme Automation"
 echo ""
-echo "=> Requires GNOME desktop environment"
+echo "=> Installs dev tools (terminal) + desktop apps + GNOME theme system"
 echo ""
 echo "Begin installation (or abort with ctrl+c)..."
 echo ""
@@ -21,14 +21,14 @@ if ! command -v git &>/dev/null; then
   exit 1
 fi
 
-echo "Cloning OmakGnome..."
-rm -rf ~/.local/share/omakgnome
-git clone https://github.com/burno-lima/omakgnome.git ~/.local/share/omakgnome >/dev/null
-if [[ -n "$OMAKGNOME_REF" && "$OMAKGNOME_REF" != "master" ]]; then
-	cd ~/.local/share/omakgnome
-	git fetch origin "$OMAKGNOME_REF" && git checkout "$OMAKGNOME_REF"
+echo "Cloning OmakDot..."
+rm -rf ~/.local/share/omakdot
+git clone https://github.com/burno-lima/omakdot.git ~/.local/share/omakdot >/dev/null
+if [[ -n "$OMAKDOT_REF" && "$OMAKDOT_REF" != "master" ]]; then
+	cd ~/.local/share/omakdot
+	git fetch origin "$OMAKDOT_REF" && git checkout "$OMAKDOT_REF"
 	cd -
 fi
 
 echo "Installation starting..."
-source ~/.local/share/omakgnome/install.sh
+source ~/.local/share/omakdot/install.sh

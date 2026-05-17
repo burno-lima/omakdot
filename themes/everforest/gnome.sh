@@ -1,5 +1,5 @@
 #!/bin/bash
 
-OMAKGNOME_THEME_COLOR="bark"
-OMAKGNOME_THEME_BACKGROUND="everforest/background.jpg"
-source $OMAKGNOME_PATH/themes/set-gnome-theme.sh
+OMAKDOT_THEME_COLOR="bark"
+OMAKDOT_THEME_BACKGROUND="everforest/background.jpg"
+source $OMAKDOT_PATH/themes/set-gnome-theme.sh

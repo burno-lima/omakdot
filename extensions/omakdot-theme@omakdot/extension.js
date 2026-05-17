@@ -26,7 +26,7 @@ class ThemeMenuToggle extends QuickSettings.QuickMenuToggle {
             toggleMode: false,
         });
 
-        this.menu.setHeader('applications-graphics-symbolic', 'OmakGnome Themes');
+        this.menu.setHeader('applications-graphics-symbolic', 'OmakDot Themes');
 
         for (const theme of THEMES) {
             this.menu.addAction(theme.name, () => {
@@ -39,7 +39,7 @@ class ThemeMenuToggle extends QuickSettings.QuickMenuToggle {
 
     _loadCurrentTheme() {
         const path = GLib.build_filenamev([
-            GLib.get_home_dir(), '.config', 'omakgnome', 'current-theme',
+            GLib.get_home_dir(), '.config', 'omakdot', 'current-theme',
         ]);
         try {
             const [ok, contents] = GLib.file_get_contents(path);
@@ -59,13 +59,13 @@ class ThemeMenuToggle extends QuickSettings.QuickMenuToggle {
         this.subtitle = themeName;
 
         const scriptPath = GLib.build_filenamev([
-            GLib.get_home_dir(), '.local', 'share', 'omakgnome', 'bin', 'apply-theme.sh',
+            GLib.get_home_dir(), '.local', 'share', 'omakdot', 'bin', 'apply-theme.sh',
         ]);
 
         try {
             GLib.spawn_command_line_async(`/bin/bash ${scriptPath} ${themeId}`);
         } catch (e) {
-            logError(e, 'OmakGnome: Failed to apply theme');
+            logError(e, 'OmakDot: Failed to apply theme');
         }
     }
 });
@@ -79,7 +79,7 @@ class ThemeIndicator extends QuickSettings.SystemIndicator {
     }
 });
 
-export default class OmakGnomeThemeExtension extends Extension {
+export default class OmakDotThemeExtension extends Extension {
     enable() {
         this._indicator = new ThemeIndicator();
         Main.panel.statusArea.quickSettings.addExternalIndicator(this._indicator);
