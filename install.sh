@@ -46,6 +46,15 @@ if [[ "$CURRENT_EXTENSIONS" != *"$EXTENSION_UUID"* ]]; then
 fi
 gnome-extensions enable "$EXTENSION_UUID" 2>/dev/null || true
 
+# Apply default theme (Tokyo Night)
+if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
+    echo "Applying default theme (Tokyo Night)..."
+    source "$OMAKDOT_PATH/themes/tokyo-night/gnome.sh"
+    source "$OMAKDOT_PATH/themes/tokyo-night/vscode.sh"
+    mkdir -p "$HOME/.config/omakdot"
+    echo "tokyo-night" > "$HOME/.config/omakdot/current-theme"
+fi
+
 echo ""
 echo "OmakDot installed!"
 echo "Use the 'Theme' button in GNOME Quick Settings (top-right panel) to switch themes."
