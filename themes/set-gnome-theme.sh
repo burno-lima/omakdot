@@ -6,13 +6,21 @@ if [ -d "/usr/share/themes/Yaru-$OMAKDOT_THEME_COLOR-dark" ]; then
   gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
   gsettings set org.gnome.desktop.interface gtk-theme "Yaru-$OMAKDOT_THEME_COLOR-dark"
   gsettings set org.gnome.desktop.interface icon-theme "Yaru-$OMAKDOT_THEME_COLOR"
+  ACCENT_COLOR="$OMAKDOT_THEME_COLOR"
 else
   gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
   gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
   gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+  case "$OMAKDOT_THEME_COLOR" in
+    magenta)  ACCENT_COLOR="pink" ;;
+    bark)     ACCENT_COLOR="teal" ;;
+    sage)     ACCENT_COLOR="green" ;;
+    viridian) ACCENT_COLOR="teal" ;;
+    *)        ACCENT_COLOR="$OMAKDOT_THEME_COLOR" ;;
+  esac
 fi
 
-gsettings set org.gnome.desktop.interface accent-color "$OMAKDOT_THEME_COLOR" 2>/dev/null || true
+gsettings set org.gnome.desktop.interface accent-color "$ACCENT_COLOR" 2>/dev/null || true
 
 BACKGROUND_ORG_PATH="$HOME/.local/share/omakdot/themes/$OMAKDOT_THEME_BACKGROUND"
 BACKGROUND_DEST_DIR="$HOME/.local/share/backgrounds"
