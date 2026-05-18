@@ -11,13 +11,19 @@ else
   gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
   gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
   gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
-  case "$OMAKDOT_THEME_COLOR" in
-    magenta)  ACCENT_COLOR="pink" ;;
-    bark)     ACCENT_COLOR="teal" ;;
-    sage)     ACCENT_COLOR="green" ;;
-    viridian) ACCENT_COLOR="teal" ;;
-    *)        ACCENT_COLOR="$OMAKDOT_THEME_COLOR" ;;
-  esac
+  # Use per-theme Adwaita accent when defined, else fall back to generic mapping.
+  # Valid Adwaita values: blue teal green yellow orange red pink purple slate
+  if [ -n "$OMAKDOT_ADWAITA_ACCENT" ]; then
+    ACCENT_COLOR="$OMAKDOT_ADWAITA_ACCENT"
+  else
+    case "$OMAKDOT_THEME_COLOR" in
+      magenta)  ACCENT_COLOR="pink" ;;
+      bark)     ACCENT_COLOR="teal" ;;
+      sage)     ACCENT_COLOR="green" ;;
+      viridian) ACCENT_COLOR="teal" ;;
+      *)        ACCENT_COLOR="$OMAKDOT_THEME_COLOR" ;;
+    esac
+  fi
 fi
 
 gsettings set org.gnome.desktop.interface accent-color "$ACCENT_COLOR" 2>/dev/null || true

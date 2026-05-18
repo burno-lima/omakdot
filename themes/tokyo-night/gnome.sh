@@ -1,5 +1,6 @@
 #!/bin/bash
 
 OMAKDOT_THEME_COLOR="purple"
+OMAKDOT_ADWAITA_ACCENT="purple"
 OMAKDOT_THEME_BACKGROUND="tokyo-night/background.jpg"
 source $OMAKDOT_PATH/themes/set-gnome-theme.sh
