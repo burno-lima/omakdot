@@ -82,9 +82,21 @@ Click the **Theme** button in the GNOME Quick Settings panel (top-right corner) 
 
 ## Updating
 
+### Full update (tools + themes)
+
 ```bash
 cd ~/.local/share/omakdot && git pull && bash install.sh
 ```
+
+### Theme-only update
+
+After the initial setup, if you only modified theme files or pulled theme changes from the repo, you can update just the theme infrastructure without reinstalling tools:
+
+```bash
+cd ~/.local/share/omakdot && git pull && bash install.sh --themes-only
+```
+
+This will update the GNOME Shell extension and `apply-theme.sh` script, skipping all tool installations and default theme application. Use the GNOME Quick Settings button or `apply-theme.sh` manually to switch themes after the update.
 
 ## Individual Package Installation
 
