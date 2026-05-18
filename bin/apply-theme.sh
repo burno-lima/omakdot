@@ -93,6 +93,39 @@ source "$OMAKDOT_PATH/themes/$THEME/gnome.sh"
 # VS Code theme
 source "$OMAKDOT_PATH/themes/$THEME/vscode.sh"
 
+# OpenCode theme
+OPENCODE_KV="$HOME/.local/state/opencode/kv.json"
+if [ -f "$OPENCODE_KV" ]; then
+  case "$THEME" in
+    tokyo-night)   OPENCODE_THEME="tokyonight" ;;
+    catppuccin)    OPENCODE_THEME="catppuccin" ;;
+    nord)          OPENCODE_THEME="nord" ;;
+    everforest)    OPENCODE_THEME="everforest" ;;
+    gruvbox)       OPENCODE_THEME="gruvbox" ;;
+    kanagawa)      OPENCODE_THEME="kanagawa" ;;
+    ristretto)     OPENCODE_THEME="catppuccin-macchiato" ;;
+    rose-pine)     OPENCODE_THEME="catppuccin" ;;
+    matte-black)   OPENCODE_THEME="one-dark" ;;
+    solarized-osaka) OPENCODE_THEME="ayu" ;;
+    *)             OPENCODE_THEME="system" ;;
+  esac
+
+  mkdir -p "$HOME/.config/opencode"
+
+  # Update runtime state for next startup
+  if command -v jq &>/dev/null; then
+    jq --arg t "$OPENCODE_THEME" '.theme = $t' "$OPENCODE_KV" > "${OPENCODE_KV}.tmp" && mv "${OPENCODE_KV}.tmp" "$OPENCODE_KV"
+  fi
+
+  # Create/update TUI config
+  cat > "$HOME/.config/opencode/tui.json" <<EOF
+{
+  "\$schema": "https://opencode.ai/tui.json",
+  "theme": "$OPENCODE_THEME"
+}
+EOF
+fi
+
 # Save current theme
 mkdir -p "$HOME/.config/omakdot"
 echo "$THEME" > "$HOME/.config/omakdot/current-theme"
