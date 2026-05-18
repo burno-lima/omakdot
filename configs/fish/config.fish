@@ -1,7 +1,5 @@
 set fish_greeting ""
 
-fish_add_path /home/burnolima/.opencode/bin
-
 # eza
 if type -q eza
     alias ls "eza --icons"
